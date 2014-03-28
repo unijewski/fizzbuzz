@@ -8,16 +8,19 @@ public class FizzBuzz {
 
 	public String calculate(int i) {
 		logger.debug("Liczba: " + i);
-		logger.info("Jestę info" + i);
-		logger.error("Jestę errorę" + i);
-		logger.warn("Jestę warningię" + i);
-		logger.fatal("Jestę fatalem" + i);
-		if (isFizz(i) && isBuzz(i))
+		logger.info("Info: " + i);
+		logger.error("Error: " + i);
+		logger.warn("Warning: " + i);
+		logger.fatal("Fatal: " + i);
+		if (isFizz(i) && isBuzz(i)) {
 			return "FizzBuzz";
-		if (isFizz(i))
+		}
+		if (isFizz(i)) {
 			return "Fizz";
-		if (isBuzz(i))
+		}
+		if (isBuzz(i)) {
 			return "Buzz";
+		}
 
 		return String.valueOf(i);
 	}
@@ -27,24 +30,18 @@ public class FizzBuzz {
 	}
 
 	private boolean isFizz(int i) {
-		return isModulo(i, 3) || checkThree(i);
+		return isModulo(i, 3) || checkContents(i, "3");
 	}
 
 	private boolean isBuzz(int i) {
-		return isModulo(i, 5) || checkFive(i);
+		return isModulo(i, 5) || checkContents(i, "5");
 	}
 
-	public static boolean checkThree(int i) {
+	public static boolean checkContents(int i, String number) {
 		String s = Integer.toString(i);
-		if (s.contains("3"))
+		if (s.contains(number)) {
 			return true;
-		return false;
-	}
-
-	public static boolean checkFive(int i) {
-		String s = Integer.toString(i);
-		if (s.contains("5"))
-			return true;
+		}
 		return false;
 	}
 
